@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.0" orientation="orthogonal" renderorder="right-down" width="110" height="15" tilewidth="70" tileheight="70" nextobjectid="30">
+ <tileset firstgid="1" name="tileset_forTiled" tilewidth="70" tileheight="70" spacing="2" margin="2">
+  <image source="../../../Users/zMing/Downloads/Kenney Platformer Base Pack for Tiled/tileset_forTiled.png" width="1024" height="1024"/>
+ </tileset>
+ <tileset firstgid="197" name="rock" tilewidth="70" tileheight="70">
+  <image source="../../../Users/zMing/Downloads/Platformer Art Complete Pack_0/Base pack/Items/rock.png" width="70" height="70"/>
+ </tileset>
+ <tileset firstgid="198" name="1" tilewidth="129" tileheight="71">
+  <tile id="0">
+   <image width="128" height="71" source="../../../Users/zMing/Downloads/Platformer Art Complete Pack_0/Base pack/Items/cloud1.png"/>
+  </tile>
+  <tile id="1">
+   <image width="129" height="71" source="../../../Users/zMing/Downloads/Platformer Art Complete Pack_0/Base pack/Items/cloud2.png"/>
+  </tile>
+  <tile id="2">
+   <image width="129" height="71" source="../../../Users/zMing/Downloads/Platformer Art Complete Pack_0/Base pack/Items/cloud3.png"/>
+  </tile>
+  <tile id="3">
+   <image width="70" height="70" source="../../../Users/zMing/Downloads/Platformer Art Complete Pack_0/Base pack/Items/coinBronze.png"/>
+  </tile>
+  <tile id="4">
+   <image width="70" height="70" source="../../../Users/zMing/Downloads/Platformer Art Complete Pack_0/Base pack/Items/coinGold.png"/>
+  </tile>
+  <tile id="5">
+   <image width="70" height="70" source="../../../Users/zMing/Downloads/Platformer Art Complete Pack_0/Base pack/Items/coinSilver.png"/>
+  </tile>
+  <tile id="6">
+   <image width="70" height="70" source="../../../Users/zMing/Downloads/Platformer Art Complete Pack_0/Base pack/Items/snowhill.png"/>
+  </tile>
+  <tile id="7">
+   <image width="70" height="70" source="../../../Users/zMing/Downloads/Platformer Art Complete Pack_0/Base pack/Items/spikes.png"/>
+  </tile>
+ </tileset>
+ <layer name="Tile Layer 1" width="110" height="15">
+  <data encoding="base64" compression="zlib">
+   eJztlksKwjAQhnMG9Sai+5xBD1R03wO478ZTmkAGYpxHH5PU6nzw001CoR//TJ0zDEPiFHLMckXOXIozWIx2RGfnEJ+Fwgsx2gDO+hSfnhTmbV1gLkLPwNlcb3DfqAPlq3fvnaMoPVnf6nMLubtPV5gHCpuTekQf3YiAs9IR1h0Kaj6at2nkHZqacj7mDijW6NsuZJ9yqPSOlixxhrmy/8n6LHWGzbu53sb0VCLv1JZ7Je0sjZ5xLim4ncj5/lVKTzW8cPNRa78NzN2n/Bk2hdae0gyF9D/Z/VG+zVnMgwjXtXjvBUnYyIU=
+  </data>
+ </layer>
+ <objectgroup name="collision">
+  <properties>
+   <property name="collidable" value="true"/>
+  </properties>
+  <object id="9" x="4128" y="976">
+   <polyline points="0,0 142,-138 348,-140 420,-208 910,-208 1190,-484 1816,-484 1956,-624 2026,-626 2100,-694 2168,-698 2380,-904 2660,-906 2662,-882 2612,-836 2594,-836 2592,70 4,74 -4128,72 -4126,2 63,-1"/>
+  </object>
+  <object id="18" x="981.333" y="772" width="348" height="37.3333"/>
+  <object id="19" x="1470.67" y="630.667" width="278.667" height="37.3333"/>
+  <object id="20" x="7072" y="72">
+   <polyline points="0,0 0,26 64,66 66,976 624,970 624,-10 -2,0"/>
+  </object>
+  <object id="27" x="490" y="910" width="70" height="70"/>
+ </objectgroup>
+ <objectgroup name="start">
+  <object id="29" x="70" y="910" width="70" height="70"/>
+ </objectgroup>
+</map>
