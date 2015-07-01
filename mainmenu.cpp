@@ -6,7 +6,8 @@ USING_NS_CC;
 
 enum
 {
-	kTagTileMap = 1,
+	kTagTileMap,
+	kTagNode
 };
 Scene* mainmenu::createScene()
 {
@@ -41,9 +42,38 @@ bool mainmenu::init()
 
 	closeItem->setPosition(Vec2(origin.x + visibleSize.width - closeItem->getContentSize().width / 2,
 		origin.y + closeItem->getContentSize().height / 2));
+	auto leftButton = MenuItemImage::create(
+		"arrowSilver_left.png",
+		"arrowBlue_left.png",
+		CC_CALLBACK_1(mainmenu::menuLeftCallback, this)
+		);
+	leftButton->setScale(5.0);
+	leftButton->setOpacity(160);
+	leftButton->setPosition(Vec2(origin.x + leftButton->getContentSize().width * 5 / 2,
+		origin.y + leftButton->getContentSize().width * 5 / 2));
 
+
+	auto rightButton = MenuItemImage::create(
+		"arrowSilver_right.png",
+		"arrowBlue_right.png",
+		CC_CALLBACK_1(mainmenu::menuRightCallback, this)
+		);
+	rightButton->setScale(5.0);
+	rightButton->setOpacity(160);
+	rightButton->setPosition(Vec2(origin.x + rightButton->getContentSize().width * 10,
+		origin.y + rightButton->getContentSize().width * 5 / 2));
+
+	auto jumpButton = MenuItemImage::create(
+		"buttonRound_grey.png",
+		"buttonRound_blue.png",
+		CC_CALLBACK_1(mainmenu::menuRightCallback, this)
+		);
+	jumpButton->setScale(3.0);
+	jumpButton->setOpacity(160);
+	jumpButton->setPosition(Vec2(origin.x + visibleSize.width - jumpButton->getContentSize().width * 5,
+		origin.y + jumpButton->getContentSize().width * 5 / 2));
 	
-	auto menu = Menu::create(closeItem, NULL);
+	auto menu = Menu::create(closeItem,jumpButton,leftButton,rightButton, NULL);
 	menu->setPosition(Vec2::ZERO);
 	this->addChild(menu, 1);
 
@@ -53,7 +83,17 @@ bool mainmenu::init()
 	label->setPosition(Vec2(origin.x + visibleSize.width / 2,
 		origin.y + visibleSize.height - label->getContentSize().height));
 
+
+	auto bg = ParallaxNode::create();
+	auto sky = CCSprite::create("bg.png");
+	sky->setScale(0.5);
+	sky->setAnchorPoint(Vec2(0, 0));
+	bg->addChild(sky, 0, Vec2(0.5, 0.5), Vec2::ZERO);
+
+
+	addChild(bg, 0, kTagNode);
 	auto map = TMXTiledMap::create("map2.tmx");
+
 	addChild(map, 0, kTagTileMap);
 
 	// all tiles are aliased by default, let's set them anti-aliased
@@ -72,7 +112,34 @@ void mainmenu::menuCloseCallback(Ref* pSender)
 	return;
 #endif
 
-	Director::getInstance()->end();
+	Director::getInstance()->popScene();
+
+#if (CC_TARGET_PLATFORM == CC_PLATFORM_IOS)
+	exit(0);
+#endif
+}
+void mainmenu::menuLeftCallback(Ref* pSender)
+{
+#if (CC_TARGET_PLATFORM == CC_PLATFORM_WP8) || (CC_TARGET_PLATFORM == CC_PLATFORM_WINRT)
+	MessageBox("You pressed the close button. Windows Store Apps do not implement a close button.", "Alert");
+	return;
+#endif
+
+
+
+#if (CC_TARGET_PLATFORM == CC_PLATFORM_IOS)
+	exit(0);
+#endif
+}
+
+void mainmenu::menuRightCallback(Ref* pSender)
+{
+#if (CC_TARGET_PLATFORM == CC_PLATFORM_WP8) || (CC_TARGET_PLATFORM == CC_PLATFORM_WINRT)
+	MessageBox("You pressed the close button. Windows Store Apps do not implement a close button.", "Alert");
+	return;
+#endif
+
+
 
 #if (CC_TARGET_PLATFORM == CC_PLATFORM_IOS)
 	exit(0);

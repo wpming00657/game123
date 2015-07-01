@@ -14,7 +14,8 @@ public:
 
 	// a selector callback
 	void menuCloseCallback(cocos2d::Ref* pSender);
-
+	void menuLeftCallback(cocos2d::Ref* pSender);
+	void menuRightCallback(cocos2d::Ref* pSender);
 	// implement the "static create()" method manually
 	CREATE_FUNC(mainmenu);
 };
